@@ -1,15 +1,23 @@
-import express from 'express';
+import { GraphQLServer } from 'graphql-yoga';
 
-class Server {
-  private app:express.Application;
-
-  constructor() {
-    this.app = express();
+const typeDefs = `
+  type Query {
+    hello: String!
   }
 
-  public getInstance() {
-    return this.app;
-  }
-}
+`;
 
-export default Server;
+const resolvers = {
+  Query: {
+    hello: () => 'Hello!'
+  }
+};
+
+const server = new GraphQLServer({
+  typeDefs,
+  resolvers,
+});
+
+server.start({ port: 8000 }, () => {
+  console.log('8000 port');
+});
