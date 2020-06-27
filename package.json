@@ -4,7 +4,8 @@
   "description": "Prisma &amp; MySQL examples for beginners",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -e ts,graphql -x ts-node server.ts"
   },
   "repository": {
     "type": "git",
